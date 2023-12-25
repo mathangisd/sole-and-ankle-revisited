@@ -6,6 +6,7 @@ import styled from 'styled-components/macro';
 import SearchInput from '../SearchInput';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
+import { QUERIES } from '../../constants';
 
 const SuperHeader = () => {
   return (
@@ -32,7 +33,7 @@ const Wrapper = styled.div`
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
-   @media (max-width: 59.375rem) {
+   @media ${QUERIES.tabletAndDown} {
     display : none ;
   }
   

@@ -6,7 +6,7 @@ import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import Icon from '../Icon';
-
+import {QUERIES} from '../../constants';
 
 
 const Header = () => {
@@ -34,7 +34,6 @@ const Header = () => {
         </Nav>
         <Side />
         <MobileWrapper>
-          
           <Icon id='shopping-bag'/>  
           <Icon id='search'/>  
           <HamBurgerButton onClick={() => setShowMobileMenu(true)}>   
@@ -58,7 +57,7 @@ const MainHeader = styled.div`
 
   border-bottom: 1px solid var(--colors-gray-300);
   
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndDown} {
     border-top: 4px solid var(--colors-gray-300);
     gap: 16px;
   }
@@ -73,7 +72,7 @@ const Nav = styled.nav`
   );
   margin: 0px 48px;
   overflow: scroll;
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndDown} {
       display: none;
   }
 `;
@@ -96,7 +95,7 @@ const NavLink = styled.a`
 
 const MobileWrapper = styled.div`
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndDown} {
   display: flex;
   flex: 1;
   flex-basis: 75px;

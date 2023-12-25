@@ -7,6 +7,7 @@ import Select from '../Select';
 import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
+import {QUERIES} from '../../constants';
 
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
@@ -49,7 +50,7 @@ const Wrapper = styled.div`
   align-items: baseline;
   gap: 32px;
 
-  @media (max-width: 59.375rem) {
+  @media ${QUERIES.tabletAndDown} {
     flex-direction: column-reverse;
 
   }
@@ -58,14 +59,14 @@ const Wrapper = styled.div`
 
 const SortFilterWrapper = styled.div`
 
-  @media (max-width: 37.5rem) {
+  @media  ${QUERIES.phoneAndDown}{
     display: none ;
   }
 
 `;
 const LeftColumn = styled.div`
   flex-basis: 248px;
-  @media (max-width: 59.375rem) {
+  @media  ${QUERIES.tabletAndDown} {
       max-height:0px;
   }
 `;
