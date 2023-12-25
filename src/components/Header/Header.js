@@ -34,11 +34,12 @@ const Header = () => {
         </Nav>
         <Side />
         <MobileWrapper>
-          <Icon id='search'/>  
+          
           <Icon id='shopping-bag'/>  
-            <button onClick={() => setShowMobileMenu(true)}>   
-                <Icon id='menu' />  
-            </button>   
+          <Icon id='search'/>  
+          <HamBurgerButton onClick={() => setShowMobileMenu(true)}>   
+              <Icon id='menu' />  
+          </HamBurgerButton>   
             <MobileMenu
             isOpen={showMobileMenu}
             onDismiss={() => setShowMobileMenu(false)}
@@ -99,12 +100,18 @@ const MobileWrapper = styled.div`
   display: flex;
   flex: 1;
   flex-basis: 75px;
-  justify-content: space-around;
-  gap: 8px;
+  justify-content: flex-end;
+  gap: 5vw;
   }
+  
   display: none;
 `;
 
+
+const HamBurgerButton = styled.button`
+  padding: 0;
+  border: transparent;
+`;
 
 
 

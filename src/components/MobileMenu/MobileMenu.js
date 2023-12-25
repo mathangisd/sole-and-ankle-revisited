@@ -6,7 +6,6 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
-import { COLORS } from '../../constants';
 
 import { X } from "react-feather";
 
