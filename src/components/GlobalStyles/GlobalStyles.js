@@ -77,6 +77,8 @@ html {
   --color-gray-900: ${COLORS.gray[900]};
   --color-primary: ${COLORS.primary};
   --color-secondary: ${COLORS.secondary};
+  --color-grayA-700: hsla(220, 5%, 40%, 0.8);
+
 
   --font-weight-normal: ${WEIGHTS.normal};
   --font-weight-medium: ${WEIGHTS.medium};

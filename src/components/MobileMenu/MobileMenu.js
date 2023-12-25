@@ -70,7 +70,7 @@ const NavWrapper = styled.nav`
     text-decoration: none;
     font-size: calc( 18 / 16)rem;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: var(--font-weight-medium);
     color: var(--colors-gray-900);
   }
 `;
@@ -82,7 +82,7 @@ const FooterWrapper = styled.footer`
   gap: 8px;
   & > a {
     text-decoration: none;
-    font-weight: 500;
+    font-weight:  var(--font-weight-normal);
     font-size: calc( 14 / 16)rem;
     color: var(--colors-gray-700);
   }
@@ -94,8 +94,7 @@ const Overlay = styled(DialogOverlay)`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--colors-gray-300);
-  background: hsla(220, 5%, 40%, 0.8);
+  background: var(--color-grayA-700);
   display: flex;
   justify-content: flex-end;
   align-items: center;
