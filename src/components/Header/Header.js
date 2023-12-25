@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import Icon from '../Icon';
+
+
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -30,12 +33,18 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Side />
+        <MobileWrapper>
+          <Icon id='search'/>  
+          <Icon id='shopping-bag'/>  
+            <button onClick={() => setShowMobileMenu(true)}>   
+                <Icon id='menu' />  
+            </button>   
+            <MobileMenu
+            isOpen={showMobileMenu}
+            onDismiss={() => setShowMobileMenu(false)}
+            />        
+        </MobileWrapper>
       </MainHeader>
-
-      <MobileMenu
-        isOpen={showMobileMenu}
-        onDismiss={() => setShowMobileMenu(false)}
-      />
     </header>
   );
 };
@@ -45,13 +54,27 @@ const MainHeader = styled.div`
   align-items: baseline;
   padding: 18px 32px;
   height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+
+  border-bottom: 1px solid var(--colors-gray-300);
+  
+  @media (max-width: 59.375rem) {
+    border-top: 4px solid var(--colors-gray-300);
+    gap: 16px;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(
+    1rem,
+    2vw + 1rem,
+    3rem
+  );
   margin: 0px 48px;
+  overflow: scroll;
+  @media (max-width: 59.375rem) {
+      display: none;
+  }
 `;
 
 const Side = styled.div`
@@ -62,12 +85,27 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: var(--color-gray-900);
+  font-weight: var(--weight-medium);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
-  }
+    color: var(--color-secondary)};
 `;
+
+
+const MobileWrapper = styled.div`
+
+  @media (max-width: 59.375rem) {
+  display: flex;
+  flex: 1;
+  flex-basis: 75px;
+  justify-content: space-around;
+  gap: 8px;
+  }
+  display: none;
+`;
+
+
+
 
 export default Header;

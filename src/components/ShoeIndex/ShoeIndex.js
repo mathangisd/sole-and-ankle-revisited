@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -15,14 +14,16 @@ const ShoeIndex = ({ sortId, setSortId }) => {
       <MainColumn>
         <Header>
           <Title>Running</Title>
-          <Select
-            label="Sort"
-            value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
-          >
-            <option value="newest">Newest Releases</option>
-            <option value="price">Price</option>
-          </Select>
+          <SortFilterWrapper>
+            <Select
+              label="Sort"
+              value={sortId}
+              onChange={(ev) => setSortId(ev.target.value)}
+            >
+              <option value="newest">Newest Releases</option>
+              <option value="price">Price</option>
+            </Select>
+          </SortFilterWrapper>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
@@ -47,10 +48,26 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
+
+  @media (max-width: 59.375rem) {
+    flex-direction: column-reverse;
+
+  }
+
 `;
 
+const SortFilterWrapper = styled.div`
+
+  @media (max-width: 37.5rem) {
+    display: none ;
+  }
+
+`;
 const LeftColumn = styled.div`
   flex-basis: 248px;
+  @media (max-width: 59.375rem) {
+      max-height:0px;
+  }
 `;
 
 const MainColumn = styled.div`
@@ -65,7 +82,7 @@ const Header = styled.header`
 
 const Title = styled.h2`
   font-size: 1.5rem;
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--weights-medium);
 `;
 
 export default ShoeIndex;
