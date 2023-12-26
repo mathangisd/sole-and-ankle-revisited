@@ -50,7 +50,7 @@ const Wrapper = styled.div`
   align-items: baseline;
   gap: 32px;
 
-  @media ${QUERIES.tabletAndDown} {
+  @media ${QUERIES.tabletAndSmaller} {
     flex-direction: column-reverse;
 
   }
@@ -59,14 +59,14 @@ const Wrapper = styled.div`
 
 const SortFilterWrapper = styled.div`
 
-  @media  ${QUERIES.phoneAndDown}{
+  @media  ${QUERIES.phoneAndSmaller}{
     display: none ;
   }
 
 `;
 const LeftColumn = styled.div`
   flex-basis: 248px;
-  @media  ${QUERIES.tabletAndDown} {
+  @media  ${QUERIES.tabletAndSmaller} {
       max-height:0px;
   }
 `;

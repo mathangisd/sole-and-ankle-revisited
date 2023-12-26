@@ -57,7 +57,7 @@ const MainHeader = styled.div`
 
   border-bottom: 1px solid var(--color-gray-300);
   
-  @media ${QUERIES.tabletAndDown} {
+  @media ${QUERIES.tabletAndSmaller} {
     border-top: 4px solid var(--color-gray-300);
     gap: 16px;
   }
@@ -72,7 +72,7 @@ const Nav = styled.nav`
   );
   margin: 0px 48px;
   overflow: scroll;
-  @media ${QUERIES.tabletAndDown} {
+  @media ${QUERIES.tabletAndSmaller} {
       display: none;
   }
 `;
@@ -95,7 +95,7 @@ const NavLink = styled.a`
 
 const MobileWrapper = styled.div`
 
-  @media ${QUERIES.tabletAndDown} {
+  @media ${QUERIES.tabletAndSmaller} {
   display: flex;
   flex: 1;
   flex-basis: 75px;

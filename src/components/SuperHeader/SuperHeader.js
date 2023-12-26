@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
-   @media ${QUERIES.tabletAndDown} {
+   @media ${QUERIES.tabletAndSmaller} {
     display : none ;
   }
   
