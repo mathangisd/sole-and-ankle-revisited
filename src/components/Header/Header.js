@@ -7,7 +7,8 @@ import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import Icon from '../Icon';
 import {QUERIES} from '../../constants';
-
+import UnstyledButtons from '../UnstyledButton';
+import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -21,9 +22,9 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
+        </LogoWrapper>
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -32,18 +33,31 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-        <Side />
         <MobileWrapper>
-          <Icon id='shopping-bag'/>  
-          <Icon id='search'/>  
-          <HamBurgerButton onClick={() => setShowMobileMenu(true)}>   
-              <Icon id='menu' />  
-          </HamBurgerButton>   
+          <ShoppingBagButton>
+            <Icon id='shopping-bag'/>  
+            <VisuallyHidden>
+              Open cart
+            </VisuallyHidden>
+          </ShoppingBagButton>
+          <UnstyledButtons> 
+            <Icon id='search'/>  
+            <VisuallyHidden>
+              Search
+            </VisuallyHidden>
+          </UnstyledButtons>
+           <UnstyledButtons onClick={() => setShowMobileMenu(true)}> 
+              <Icon id='menu' />   
+            <VisuallyHidden>
+              Menu
+            </VisuallyHidden>
+          </UnstyledButtons>
             <MobileMenu
             isOpen={showMobileMenu}
             onDismiss={() => setShowMobileMenu(false)}
             />        
-        </MobileWrapper>
+        </MobileWrapper> 
+        <Filler />
       </MainHeader>
     </header>
   );
@@ -53,32 +67,50 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
 
   border-bottom: 1px solid var(--color-gray-300);
-  
+
+  overflow: auto;
   @media ${QUERIES.tabletAndSmaller} {
-    border-top: 4px solid var(--color-gray-300);
-    gap: 16px;
+    border-top: 4px solid var(--color-gray-900);
+    justify-content: space-between;
+    align-items: center;
   }
+  
+  @media ${QUERIES.phoneAndSmaller} {
+      padding-left: 16px;
+      padding-right: 16px;
+  }
+
 `;
 
 const Nav = styled.nav`
+
   display: flex;
   gap: clamp(
     1rem,
-    2vw + 1rem,
-    3rem
+    9.2vw - 4.5rem,
+    3.5rem
   );
   margin: 0px 48px;
-  overflow: scroll;
+ 
   @media ${QUERIES.tabletAndSmaller} {
       display: none;
   }
 `;
 
-const Side = styled.div`
+const LogoWrapper = styled.div`
   flex: 1;
+  @media ${QUERIES.tabletAndSmaller} {
+    flex: revert;
+  }
+`;
+const Filler = styled.div`
+  flex: 1;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: none;
+  }
 `;
 
 const NavLink = styled.a`
@@ -97,21 +129,17 @@ const MobileWrapper = styled.div`
 
   @media ${QUERIES.tabletAndSmaller} {
   display: flex;
-  flex: 1;
-  flex-basis: 75px;
-  justify-content: flex-end;
-  gap: 5vw;
+  gap: 32px;
   }
   
+  @media ${QUERIES.phoneAndSmaller} {
+    gap: 16px;
+  }
   display: none;
 `;
 
-
-const HamBurgerButton = styled.button`
-  padding: 0;
-  border: transparent;
+const ShoppingBagButton = styled(UnstyledButtons)`
+  transform: translateX(-2px);
 `;
-
-
 
 export default Header;

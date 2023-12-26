@@ -20,12 +20,14 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
       isOpen={isOpen}
       onDismiss={onDismiss}
     >
-      <Content>
-        <ButtonWrapper>
-          <button onClick={onDismiss}><X /></button>
-          <VisuallyHidden>Close</VisuallyHidden>
+      <Content aria-label="Menu">
+        <ButtonWrapper onClick={onDismiss}>
+            <Icon id="close" />
+          <VisuallyHidden>Dismiss menu</VisuallyHidden>
         </ButtonWrapper>
-        <LinkWrapper>
+
+       
+        <Filler />
           <NavWrapper>
             <a href="/sale">Sale</a>
             <a href="/new">New&nbsp;Releases</a>
@@ -39,7 +41,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
               <a href="/privacy">Privacy Policy</a>
               <a href="/contact">Contact Us</a>
           </FooterWrapper>
-        </LinkWrapper>
+       
       </Content>
     </Overlay>
     </div>
@@ -48,23 +50,20 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
 
 
-const ButtonWrapper = styled.div`
+const ButtonWrapper = styled(UnstyledButton)`
+  top: 16px;
+  right: 0;
+  padding: 16px;
+  position: absolute;
   align-self: flex-end;
 `;
 
-const LinkWrapper = styled.div`
-  padding-left: 32px;
-  display: flex;
-  flex-direction: column;
-  height: 100dvh;
-`;
 
 
 const NavWrapper = styled.nav`
   display: flex;
   flex-direction: column;
-  margin-top: 15dvh;
-  gap: 22px;
+  gap: 16px;
 
   & > a {
     text-decoration: none;
@@ -73,12 +72,17 @@ const NavWrapper = styled.nav`
     font-weight: var(--font-weight-medium);
     color: var(--color-gray-900);
   }
+
+  & > a:first-child {
+    color: var(--color-secondary);
+  }
 `;
 
 const FooterWrapper = styled.footer`
+  flex:1;
   display: flex;
   flex-direction: column;
-  margin-top: auto;
+  justify-content: flex-end;
   gap: 8px;
   & > a {
     text-decoration: none;
@@ -104,11 +108,15 @@ const Overlay = styled(DialogOverlay)`
 const Content = styled(DialogContent)`
   position: relative;
   background-color: var(--color-white);
-  width: 65%;
+  width: 300px;
   height: 100%;
   display: flex;
   flex-direction: column;
   padding: 32px;
 `;
+
+
+const Filler = styled.div`
+flex:1`;
 
 export default MobileMenu;
