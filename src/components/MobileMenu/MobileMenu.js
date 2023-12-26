@@ -71,7 +71,7 @@ const NavWrapper = styled.nav`
     font-size: calc( 18 / 16)rem;
     text-transform: uppercase;
     font-weight: var(--font-weight-medium);
-    color: var(--colors-gray-900);
+    color: var(--color-gray-900);
   }
 `;
 
@@ -84,7 +84,7 @@ const FooterWrapper = styled.footer`
     text-decoration: none;
     font-weight:  var(--font-weight-normal);
     font-size: calc( 14 / 16)rem;
-    color: var(--colors-gray-700);
+    color: var(--color-gray-700);
   }
 `;
 
@@ -94,7 +94,7 @@ const Overlay = styled(DialogOverlay)`
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--color-grayA-700);
+  background: var(--color-backdrop);
   display: flex;
   justify-content: flex-end;
   align-items: center;

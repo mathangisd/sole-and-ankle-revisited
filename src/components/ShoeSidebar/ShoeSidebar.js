@@ -33,12 +33,12 @@ const Link = styled.a`
   display: block;
   text-decoration: none;
   font-weight: var(--weights-medium);
-  color: var(--colors-gray-900);
+  color: var(--color-gray-900);
   line-height: 2;
 `;
 
 const ActiveLink = styled(Link)`
-  color: var(--colors-primary);
+  color: var(--color-primary);
 `;
 
 export default Sidebar;

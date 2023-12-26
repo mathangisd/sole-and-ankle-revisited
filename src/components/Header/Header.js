@@ -55,10 +55,10 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
 
-  border-bottom: 1px solid var(--colors-gray-300);
+  border-bottom: 1px solid var(--color-gray-300);
   
   @media ${QUERIES.tabletAndDown} {
-    border-top: 4px solid var(--colors-gray-300);
+    border-top: 4px solid var(--color-gray-300);
     gap: 16px;
   }
 `;
